@@ -11,8 +11,13 @@
     "Proxy"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "@netlify/functions": "^3.0.0",
+    "@types/node": "^22.10.5",
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "netlify-cli": "^18.0.0"
   }
 }
