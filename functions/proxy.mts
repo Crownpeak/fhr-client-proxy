@@ -1,7 +1,7 @@
 import type {Context, Handler} from "@netlify/functions";
 import fetch from "node-fetch";
 
-// Basic Auth Credentials
+// Environment variables for Fredhopper Query API target URL and credentials
 const username = process.env.API_USERNAME;
 const password = process.env.API_PASSWORD;
 const targetHost = process.env.TARGET_HOST;
@@ -13,7 +13,6 @@ if (!username || !password || !targetHost) {
     );
 }
 
-// Basic Auth header
 const basicAuth = "Basic " + Buffer.from(`${username}:${password}`).toString("base64");
 
 export const handler : Handler = async (event, context) => {
@@ -27,9 +26,8 @@ export const handler : Handler = async (event, context) => {
         };
     }
 
-    // Construct the target URL
     const targetUrl = new URL(targetHost);
-    // Add query
+    // Passthrough the query params
     if (queryStringParameters) {
         Object.entries(queryStringParameters).forEach(([key, value]) => {
             targetUrl.searchParams.append(key as string, value as string);
@@ -45,10 +43,9 @@ export const handler : Handler = async (event, context) => {
     };
 
     try {
-        // You can add any caching logic or custom functionality here
+        // Add caching or custom logic here if required
         const response = await fetch(targetUrl.toString(), options);
 
-        // Check if the response was successful
         if (!response.ok) {
             throw new Error(
                 `Error fetch from target URL: ${response.status} ${response.statusText}`
@@ -64,7 +61,7 @@ export const handler : Handler = async (event, context) => {
             statusCode: response.status,
             headers: {
                 ...responseHeaders,
-                // You can add more headers if needed
+                // Add additional headers if needed
             },
             body: responseBody,
         };
