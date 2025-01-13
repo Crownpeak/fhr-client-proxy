@@ -30,7 +30,7 @@ The proxy function captures incoming requests and appends Basic Authentication c
 To run this function locally or deploy it on Netlify, you need to set the following environment variables:
 
 | Variable       | Description                                                    |
-| -------------- |----------------------------------------------------------------|
+|----------------|----------------------------------------------------------------|
 | `API_USERNAME` | Username for Basic Authentication with Fredhopper’s Query API. |
 | `API_PASSWORD` | Password for Basic Authentication with Fredhopper’s Query API. |
 | `TARGET_HOST`  | Base URL of the Fredhopper’s Query API endpoint.               |
@@ -51,7 +51,7 @@ You can now send HTTP requests to the deployed proxy endpoint with the appropria
 
 This request will be proxied to the Fredhopper’s Query API at the `TARGET_HOST` with the query parameters q=product and fh_location=//catalog01/en_US.
 
-For more details on the Fredhopper’s Query API, see here: LINK
+For more details on using the Fredhopper’s Query API, [click here](https://crownpeak.gitbook.io/product-discovery/fredhopper-integration-guide/fredhopper-integration-guide-1/front-end-integration)
 
 The run the proxy locally, use the following commands:
 ``` 
