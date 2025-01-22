@@ -62,5 +62,11 @@ netlify dev
 
 Fredhopper Proxy Example is an example solution of [Crownpeak](https://www.crownpeak.com/). The Fredhopper Proxy Example is subject to the [MIT license](https://github.com/Crownpeak/fhr-client-proxy?tab=MIT-1-ov-file).
 
+This proxy must not be used for any illegal activities or in ways that could harm Crownpeak or Fredhopper's systems.
+
+This proxy does not store or process any user data. All data is forwarded directly to the Fredhopper Query API.
+
+Copyright © 2025 Crownpeak Technology, Inc. All rights reserved. Fredhopper is a trademark of Crownpeak Technology, Inc.
+
 ## Disclaimer
 This document is provided for information purposes only. Crownpeak may change the contents hereof without notice. This document is not warranted to be error-free, nor subject to any other warranties or conditions, whether expressed orally or implied in law, including implied warranties and conditions of merchantability or fitness for a particular purpose. Crownpeak specifically disclaims any liability with respect to this document and no contractual obligations are formed either directly or indirectly by this document. The technologies, functionality, services, and processes described herein are subject to change without notice.
