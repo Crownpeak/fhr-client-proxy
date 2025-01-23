@@ -4,7 +4,7 @@ This repository contains a simple proxy for [Crownpeak](https://www.crownpeak.co
 
 It forwards requests to a specified Fredhopper target URL while adding Basic Authentication, which Crownpeak requires.
 
-The repository can be deployed as a [Netlify Function](https://www.netlify.com/). With a few changes, it can also be deployed to other hosting providers, such as in Amazon Web Services as a Lambda Function.
+The repository can be deployed as a [Netlify Function](https://docs.netlify.com/functions/overview/). With a few changes, it can also be deployed to other hosting providers, such as in Amazon Web Services as a Lambda Function.
 
 ## Use Case
 
