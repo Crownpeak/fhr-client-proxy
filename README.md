@@ -1,5 +1,6 @@
-# Fredhopper Proxy Example
+<a href="http://www.crownpeak.com" target="_blank">![Crownpeak Logo](images/logo/crownpeak-logo.png?raw=true "Crownpeak Logo")</a>
 
+# Fredhopper Proxy Example
 This repository contains a simple proxy for [Crownpeak](https://www.crownpeak.com) Fredhopper using [Node.js](https://nodejs.org/) and the [node-fetch](https://github.com/node-fetch/node-fetch) library.
 
 It forwards requests to a specified Fredhopper target URL while adding Basic Authentication, which Crownpeak requires.
