@@ -92,3 +92,6 @@ public/sitemap.xml
 
 # Local Netlify folder
 .netlify
+
+# Local AWS folders
+.aws-sam

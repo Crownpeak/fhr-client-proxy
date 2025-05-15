@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: FHR Client Proxy
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  FHRClientProxy:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./proxy
+      Handler: app.lambdaHandler
+      Runtime: nodejs20.x
+      Architectures:
+      - x86_64
+      Environment:
+        Variables:
+          API_USERNAME: 
+          API_PASSWORD: 
+          TARGET_HOST: 
+      Events:
+        FHRProxy:
+          Type: Api
+          Properties:
+            Path: /proxy
+            Method: get
+    Metadata:
+      SamResourceId: FHRClientProxy
+Outputs:
+  FHRProxyApi:
+    Description: API Gateway endpoint URL for Prod stage for FHR Client Proxy function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Regionß}.amazonaws.com/Prod/proxy/
+  FHRClientProxy:
+    Description: FHR Proxy Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - FHRClientProxy
+      - Arn
+  FHRClientProxyIamRole:
+    Description: Implicit IAM Role created for FHR Client Proxy Function
+    Value:
+      Fn::GetAtt:
+      - FHRClientProxyRole
+      - Arn

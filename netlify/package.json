@@ -1,6 +1,6 @@
 {
   "name": "fhr-proxy",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "A simple proxy implementation for Fredhopper.",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "Fredhopper",
     "Proxy"
   ],
-  "author": "",
+  "author": "Guy Brown",
   "license": "MIT",
   "dependencies": {
     "@netlify/functions": "^3.0.0",

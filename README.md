@@ -5,7 +5,7 @@ This repository contains a simple proxy for [Crownpeak](https://www.crownpeak.co
 
 It forwards requests to a specified Fredhopper target URL while adding Basic Authentication, which Crownpeak requires.
 
-The repository can be deployed as a [Netlify Function](https://docs.netlify.com/functions/overview/). With a few changes, it can also be deployed to other hosting providers, such as in Amazon Web Services as a Lambda Function.
+The repository can be deployed as a [Netlify Function](https://docs.netlify.com/functions/overview/) or as an Amazon Web Services [Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
 
 ## Use Case
 
@@ -29,7 +29,7 @@ The proxy function captures incoming requests and appends Basic Authentication c
 
 ## Environment Variables
 
-To run this function locally or deploy it on Netlify, you must set the following environment variables:
+You must set the following environment variables:
 
 | Variable       | Description                                                    |
 |----------------|----------------------------------------------------------------|
@@ -39,7 +39,11 @@ To run this function locally or deploy it on Netlify, you must set the following
 
 ## Usage
 
-This repository is ready to be deployed as a Netlify Function. The easiest way to achieve this is to use [Netlify’s default automatic build process](https://docs.netlify.com/functions/deploy/).
+### Netlify Function
+
+`./netlify` directory
+
+This repository is ready to be deployed as a Netlify Function. The easiest way to achieve this is to use [Netlify’s default automatic build process](https://docs.netlify.com/functions/deploy/). 
 
 Once deployed, set the `API_USERNAME`, `API_PASSWORD`, and `TARGET_HOST` environment variables via the Netlify console, ensuring they are the correct values for your Fredhopper Query API.
 
@@ -51,13 +55,29 @@ You can send requests to the deployed proxy endpoint using the appropriate query
 
 This request will be proxied to the Fredhopper Query API at the `TARGET_HOST` with the query parameters q=product and fh_location=//catalog01/en_US.
 
-For more details on using the [Fredhopper Query API](https://crownpeak.gitbook.io/product-discovery/fredhopper-integration-guide/fredhopper-integration-guide-1/front-end-integration), see the documentation.
-
 To run the proxy locally, use the following commands:
 ``` 
 npm install 
 netlify dev
 ```
+
+### AWS Lambda
+
+`./aws_lambda` directory
+
+Open the project in your favourite IDE, such as VS Code, and make sure you have the AWS Toolkit installed.
+
+Add the required `API_USERNAME`, `API_PASSWORD`, and `TARGET_HOST` environment variables to the SAM Template (`./aws_lambda/template.yaml`).
+
+You can run the function locally by running `sam local start-api` from the `./aws_lambda` directory.
+
+Your chosen deployment method will depend on your organisation's processes. However you can deploy the function directly from your IDE using the AWS Toolkit.
+
+Open the AWS Toolkit, select `fhr-client-proxy/aws_lambda` from the Application Builder, click the Deploy SAM Application button and follow the prompts.
+
+## Fredhopper Query API
+
+For more details on using the [Fredhopper Query API](https://crownpeak.gitbook.io/product-discovery/fredhopper-integration-guide/fredhopper-integration-guide-1/front-end-integration), see the documentation.
 
 ##  Legal Notices
 
