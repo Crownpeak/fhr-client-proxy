@@ -69,7 +69,14 @@ Open the project in your favourite IDE, such as VS Code, and make sure you have 
 
 Add the required `API_USERNAME`, `API_PASSWORD`, and `TARGET_HOST` environment variables to the SAM Template (`./aws_lambda/template.yaml`).
 
-You can run the function locally by running `sam local start-api` from the `./aws_lambda` directory.
+To run the function locally, use the following commands:
+
+``` 
+cd aws_lambda/proxy
+npm install 
+cd ..
+sam local start-api
+```
 
 Your chosen deployment method will depend on your organisation's processes. However you can deploy the function directly from your IDE using the AWS Toolkit.
 

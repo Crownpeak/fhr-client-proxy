@@ -95,3 +95,4 @@ public/sitemap.xml
 
 # Local AWS folders
 .aws-sam
+aws_lambda/samconfig.toml

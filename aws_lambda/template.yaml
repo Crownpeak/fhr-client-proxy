@@ -12,34 +12,25 @@ Resources:
       Handler: app.lambdaHandler
       Runtime: nodejs20.x
       Architectures:
-      - x86_64
+        - x86_64
       Environment:
         Variables:
           API_USERNAME: 
           API_PASSWORD: 
           TARGET_HOST: 
       Events:
-        FHRProxy:
+        FHRClientProxy:
           Type: Api
           Properties:
             Path: /proxy
             Method: get
-    Metadata:
-      SamResourceId: FHRClientProxy
 Outputs:
-  FHRProxyApi:
-    Description: API Gateway endpoint URL for Prod stage for FHR Client Proxy function
-    Value:
-      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Regionß}.amazonaws.com/Prod/proxy/
+  FHRClientProxyApi:
+    Description: API Gateway endpoint URL for Prod stage for FHR Proxy function
+    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/proxy/
   FHRClientProxy:
-    Description: FHR Proxy Lambda Function ARN
-    Value:
-      Fn::GetAtt:
-      - FHRClientProxy
-      - Arn
+    Description: FHR Client Proxy Lambda Function ARN
+    Value: !GetAtt FHRClientProxy.Arn
   FHRClientProxyIamRole:
     Description: Implicit IAM Role created for FHR Client Proxy Function
-    Value:
-      Fn::GetAtt:
-      - FHRClientProxyRole
-      - Arn
+    Value: !GetAtt FHRClientProxyRole.Arn
